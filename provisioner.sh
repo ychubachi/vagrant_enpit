@@ -8,7 +8,7 @@ apt-get install -y emacs
 
 # postgres
 apt-get install -y postgresql
-systemctl enable postgresql
+systemctl enable postgresql.service
 
 # create a database for vagrant
 /etc/init.d/postgresql start
