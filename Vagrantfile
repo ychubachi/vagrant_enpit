@@ -16,15 +16,29 @@ Vagrant.configure("2") do |config|
     # heroku
     snap install --classic heroku
     # ruby
-    apt-get install -y ruby-build
-    sudo su - vagrant <<EOF
-      rbenv install 2.4.1
-      rbenv global 2.4.1
+    apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev
+    sudo su - vagrant <<'EOF'
+      cd ~
+      # rbenv
+      git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+      echo 'export PATH=~/.rbenv/bin:$PATH' >> ~/.bashrc
+      echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+      source ~/.bashrc
+      # ruby-build
+      mkdir -p ~/.rbenv/plugins
+      git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+      # ruby
+      rbenv install 2.5.5
+      rbenv global 2.5.5
 EOF
   SHELL
 end
 
 =begin
+
+  apt-get install -y ruby-build
+    sudo su - vagrant <<EOF
+EOF
 =end
 
 =begin
