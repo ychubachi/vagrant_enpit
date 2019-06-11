@@ -1,0 +1,2 @@
+# vagrant_enpit
+Shellによるprovisionを行うバージョンのenpit仮想環境
