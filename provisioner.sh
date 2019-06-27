@@ -22,7 +22,9 @@ snap install --classic heroku
 # ruby
 apt-get install -y autoconf bison build-essential \
   libssl-dev libyaml-dev libreadline6-dev zlib1g-dev \
-  libncurses5-dev libffi-dev libgdbm5 libgdbm-dev
+  libncurses5-dev libffi-dev libgdbm5 libgdbm-dev \
+  libpq-dev
+
 sudo su - vagrant <<'EOF'
   cd ~
 
@@ -38,4 +40,6 @@ sudo su - vagrant <<'EOF'
   # install ruby
   ~/.rbenv/bin/rbenv install 2.5.5
   ~/.rbenv/bin/rbenv global 2.5.5
+
+  ~/.rbenv/shims/gem install rails
 EOF
